@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesta Gamer - Noticias de Videojuegos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-purple': '#6d28d9',
+                        'brand-purple-light': '#8b5cf6',
+                        'dark-1': '#121212',
+                        'dark-2': '#181818',
+                        'dark-3': '#282828',
+                        'dark-4': '#404040',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #121212;
+            color: #E5E7EB;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(109, 40, 217, 0.3), 0 4px 6px -2px rgba(109, 40, 217, 0.2);
+        }
+        .btn-primary {
+            @apply bg-brand-purple text-white font-bold py-2 px-4 rounded-lg hover:bg-brand-purple-light transition-colors duration-300;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-dark-1 font-sans">
+
+    <!-- Header -->
+    <header class="bg-dark-2/80 backdrop-blur-sm sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="h-10">
+                <img src="logo.jpg" alt="Gesta Gamer Logo" class="h-full w-auto">
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#news" class="text-gray-300 hover:text-white transition-colors duration-300">Noticias</a>
+                <a href="#games" class="text-gray-300 hover:text-white transition-colors duration-300">Juegos</a>
+                <a href="streamers.html" class="text-gray-300 hover:text-white transition-colors duration-300">Streamers</a>
+                <a href="collectibles.html" class="text-gray-300 hover:text-white transition-colors duration-300">Coleccionables</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Streamer of the Month Section -->
+        <section id="streamer-of-the-month" class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6">Streamer del Mes</h2>
+            <div class="bg-dark-2 rounded-xl p-6 flex flex-col md:flex-row gap-8 items-center">
+                <div class="w-full md:w-1/2 lg:w-3/5">
+                    <div class="video-container rounded-lg bg-black">
+                        <!-- Reemplaza el ID del video de YouTube en el atributo src de abajo -->
+                        <iframe src="https://www.youtube.com/embed/placeholder_video_id" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-2/5">
+                    <h3 class="text-2xl font-bold text-white">Ibai Llanos</h3>
+                    <p class="text-gray-300 mt-2 mb-4">Este mes destacamos a Ibai, conocido por sus eventos masivos y su carismática personalidad. Desde 'La Velada del Año' hasta sus streams de 'League of Legends', Ibai sigue rompiendo récords en Twitch.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="https://www.twitch.tv/ibai" title="Twitch" class="text-gray-400 hover:text-brand-purple transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M2.149 0L.537 4.119v16.836h5.731V24l4.119-2.955h3.582L23.463 12V0H2.149zm19.164 10.925l-3.582 3.582H14.18l-3.582 2.955v-2.955H4.836V2.36h16.477v8.565z"/><path d="M14.716 5.313h2.36v5.314h-2.36V5.313zM9.522 5.313h2.36v5.314h-2.36V5.313z"/></svg>
+                        </a>
+                        <a href="#" title="YouTube" class="text-gray-400 hover:text-red-600 transition-colors duration-300">
+                             <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.582 7.23c-.24-1.33-1.34-2.43-2.67-2.67C17.53 4 12 4 12 4s-5.53 0-6.91.56c-1.33.24-2.43 1.34-2.67 2.67C2 8.61 2 12 2 12s0 3.39.56 4.77c.24 1.33 1.34 2.43 2.67 2.67C6.47 20 12 20 12 20s5.53 0 6.91-.56c1.33-.24 2.43-1.34 2.67-2.67C22 15.39 22 12 22 12s0-3.39-.418-4.77zM9.75 15V9l5.25 3-5.25 3z"/></svg>
+                        </a>
+                        <a href="#" title="X (Twitter)" class="text-gray-400 hover:text-gray-100 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="#" title="Facebook" class="text-gray-400 hover:text-blue-600 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878V14.89h-2.87v-3.766h2.87V8.52c0-2.842 1.688-4.414 4.29-4.414 1.24 0 2.52.224 2.52.224v3.19h-1.61c-1.4 0-1.85.87-1.85 1.78v2.13h3.55l-.57 3.766h-2.98V21.878A9.955 9.955 0 0022 12z"/></svg>
+                        </a>
+                        <a href="#" title="Instagram" class="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849s-.012 3.584-.07 4.849c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849s.012-3.584.07-4.849c.149-3.227 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163zm0 1.441c-3.116 0-3.483.01-4.695.063-2.583.118-3.992 1.52-4.11 4.109-.053 1.21-.063 1.564-.063 4.587s.01 3.377.063 4.587c.118 2.587 1.527 3.992 4.11 4.109 1.21.054 1.58.063 4.695.063s3.485-.01 4.695-.063c2.583-.118 3.992-1.522 4.11-4.109.053-1.21.063-1.564.063-4.587s-.01-3.377-.063-4.587c-.118-2.586-1.527-3.991-4.11-4.109-1.21-.054-1.578-.063-4.695-.063zm0 3.846c-2.404 0-4.364 1.96-4.364 4.364s1.96 4.364 4.364 4.364 4.364-1.96 4.364-4.364-1.96-4.364-4.364-4.364zm0 7.29c-1.614 0-2.926-1.312-2.926-2.926s1.312-2.926 2.926-2.926 2.926 1.312 2.926 2.926-1.312 2.926-2.926 2.926zm4.804-7.44c-.665 0-1.201.536-1.201 1.201s.536 1.201 1.201 1.201 1.201-.536 1.201-1.201-.536-1.201-1.201-1.201z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest News Section -->
+        <section id="news" class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6">Últimas Noticias</h2>
+            <div class="bg-dark-2 rounded-xl p-4 sm:p-6">
+                <div id="news-container" class="space-y-8">
+                    <!-- Artículos de noticias estáticos -->
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/2a2a2a/ffffff?text=Noticia+1" alt="Imagen de Noticia 1" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">Anunciado el Próximo Gran RPG de Mundo Abierto</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por GameSpot | 14 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">El estudio 'PixelHeart' revela "Aethelgard Online", un MMORPG masivo que promete revolucionar el género con un sistema de combate dinámico y un mundo persistente.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="Anunciado el Próximo Gran RPG de Mundo Abierto" data-image="https://placehold.co/800x450/2a2a2a/ffffff?text=Noticia+1" data-content="El estudio 'PixelHeart' ha revelado hoy su proyecto más ambicioso hasta la fecha, 'Aethelgard Online'. Este MMORPG masivo está programado para un lanzamiento en 2026 y promete revolucionar el género. Con un sistema de combate que combina acción en tiempo real y estrategia por turnos, y un mundo que evoluciona según las acciones de los jugadores, 'Aethelgard' busca establecer un nuevo estándar.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/3a3a3a/ffffff?text=Noticia+2" alt="Imagen de Noticia 2" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">El Remake de 'Chrono Trigger' Podría Estar en Desarrollo</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por IGN | 13 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">Fuentes internas sugieren que Square Enix ha dado luz verde a un remake completo del legendario RPG 'Chrono Trigger', utilizando un motor gráfico de última generación.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="El Remake de 'Chrono Trigger' Podría Estar en Desarrollo" data-image="https://placehold.co/800x450/3a3a3a/ffffff?text=Noticia+2" data-content="Un rumor que ha cobrado fuerza en las últimas horas apunta a que Square Enix está trabajando en un remake completo del aclamado 'Chrono Trigger'. A diferencia de las remasterizaciones anteriores, este proyecto supuestamente se está construyendo desde cero con un estilo visual similar al de 'Final Fantasy VII Remake'. Aún no hay confirmación oficial, pero la comunidad ya está en vilo.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/4a4a4a/ffffff?text=Noticia+3" alt="Imagen de Noticia 3" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">Actualización Sorpresa de 'Stardew Valley' Añade Nuevo Contenido</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por PC Gamer | 12 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">ConcernedApe lanza la actualización 1.7 de 'Stardew Valley' sin previo aviso, añadiendo un nuevo pueblo, más personajes y eventos estacionales.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="Actualización Sorpresa de 'Stardew Valley' Añade Nuevo Contenido" data-image="https://placehold.co/800x450/4a4a4a/ffffff?text=Noticia+3" data-content="Eric 'ConcernedApe' Barone ha vuelto a sorprender a la comunidad de 'Stardew Valley' con el lanzamiento inesperado de la versión 1.7. Esta actualización masiva incluye una nueva localización explorable llamada 'Ridgeview', dos nuevos personajes con los que se puede interactuar y casarse, y un nuevo festival de invierno. El parche ya está disponible de forma gratuita para todos los jugadores en PC.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/5a5a5a/ffffff?text=Noticia+4" alt="Imagen de Noticia 4" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">La Próxima Consola de Nintendo Podría Ser Híbrida y Retrocompatible</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por Eurogamer | 11 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">Nuevas patentes registradas por Nintendo apuntan a una sucesora de la Switch que mantendría el formato híbrido y ofrecería retrocompatibilidad nativa con sus juegos.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="La Próxima Consola de Nintendo Podría Ser Híbrida y Retrocompatible" data-image="https://placehold.co/800x450/5a5a5a/ffffff?text=Noticia+4" data-content="Las últimas patentes de Nintendo sugieren que la compañía no abandonará el exitoso concepto híbrido de la Switch. Los documentos describen un dispositivo con Joy-Cons mejorados y una pantalla OLED de mayor resolución. Lo más emocionante para los fans es que se menciona explícitamente un sistema de cartuchos que permitiría la retrocompatibilidad nativa con el catálogo actual de la Nintendo Switch.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                     <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/6a6a6a/ffffff?text=Noticia+5" alt="Imagen de Noticia 5" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">'Hollow Knight: Silksong' Confirma su Aparición en el Próximo Evento Indie</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por Kotaku | 10 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">Team Cherry ha confirmado que 'Hollow Knight: Silksong' presentará un nuevo tráiler de gameplay y anunciará su ventana de lanzamiento en el evento 'Indie World' de la próxima semana.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="'Hollow Knight: Silksong' Confirma su Aparición" data-image="https://placehold.co/800x450/6a6a6a/ffffff?text=Noticia+5" data-content="La larga espera por noticias de 'Hollow Knight: Silksong' está a punto de terminar. El estudio Team Cherry ha anunciado a través de sus redes sociales que el esperado título será uno de los protagonistas del próximo evento 'Indie World'. Han prometido un nuevo tráiler centrado en el gameplay y, lo más importante, una ventana de lanzamiento definitiva.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/7a7a7a/ffffff?text=Noticia+6" alt="Imagen de Noticia 6" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">PlayStation Anuncia un Nuevo 'State of Play' Centrado en Exclusivos de 2026</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por PlayStation Blog | 9 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">Sony ha programado una nueva edición de 'State of Play' para finales de mes, donde se mostrarán en profundidad los próximos grandes exclusivos para PlayStation 5.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="PlayStation Anuncia un Nuevo 'State of Play'" data-image="https://placehold.co/800x450/7a7a7a/ffffff?text=Noticia+6" data-content="Sony Interactive Entertainment ha confirmado que el próximo 30 de septiembre se emitirá un nuevo 'State of Play'. El evento, de aproximadamente 30 minutos de duración, se centrará en los títulos first-party que llegarán a PlayStation 5 en 2026, incluyendo un primer vistazo al gameplay del nuevo proyecto de Naughty Dog y la secuela de 'Marvel's Spider-Man 2'.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                    <hr class="border-dark-4">
+                    <article class="flex flex-col sm:flex-row gap-6">
+                        <img src="https://placehold.co/400x300/8a8a8a/ffffff?text=Noticia+7" alt="Imagen de Noticia 7" class="w-full sm:w-1/3 h-auto object-cover rounded-lg">
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-white mb-2">El Género de Estrategia en Tiempo Real Vuelve con 'Tempest Rising'</h3>
+                            <p class="text-sm text-gray-400 mb-3">Por Rock Paper Shotgun | 8 de Septiembre, 2025</p>
+                            <p class="text-gray-300 mb-4 line-clamp-2">'Tempest Rising', el nuevo RTS inspirado en clásicos como 'Command & Conquer', ha lanzado una beta abierta en Steam que ha sido recibida con gran entusiasmo.</p>
+                            <a href="#" class="font-semibold text-brand-purple-light hover:text-brand-purple open-modal-trigger" data-title="El Género de Estrategia Vuelve con 'Tempest Rising'" data-image="https://placehold.co/800x450/8a8a8a/ffffff?text=Noticia+7" data-content="Los fans de la estrategia en tiempo real están de enhorabuena. THQ Nordic ha lanzado una beta abierta para 'Tempest Rising', un RTS que captura la esencia de los juegos de los 90. Con tres facciones asimétricas, construcción de bases y una campaña épica, el juego ha recibido críticas muy positivas en sus primeros días, destacando su pulido gameplay y su fidelidad al género clásico.">
+                                Leer Más &rarr;
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Games Section -->
+        <section id="games" class="mb-12">
+            <h2 class="text-3xl font-bold text-white mb-6">Juegos Destacados</h2>
+            <div class="space-y-4">
+                <!-- Game 1 -->
+                <div class="bg-dark-2 p-4 rounded-xl flex flex-col sm:flex-row items-center gap-6 card-hover-effect">
+                    <img src="https://placehold.co/150x200/2a2a2a/ffffff?text=Cyberpunk+2077" alt="Portada de Cyberpunk 2077" class="w-24 sm:w-28 h-auto rounded-lg">
+                    <div class="flex-1 text-center sm:text-left">
+                        <h3 class="text-xl font-bold text-white">Cyberpunk 2077: Phantom Liberty</h3>
+                        <p class="text-gray-400 text-sm">CD Projekt Red</p>
+                        <div class="mt-2">
+                            <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">PS5</span>
+                            <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Xbox Series X</span>
+                            <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">PC</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary w-full sm:w-auto">Comprar en Amazon</a>
+                </div>
+                <!-- Game 2 -->
+                 <div class="bg-dark-2 p-4 rounded-xl flex flex-col sm:flex-row items-center gap-6 card-hover-effect">
+                    <img src="https://placehold.co/150x200/3a3a3a/ffffff?text=Elden+Ring" alt="Portada de Elden Ring" class="w-24 sm:w-28 h-auto rounded-lg">
+                    <div class="flex-1 text-center sm:text-left">
+                        <h3 class="text-xl font-bold text-white">Elden Ring: Shadow of the Erdtree</h3>
+                        <p class="text-gray-400 text-sm">FromSoftware</p>
+                        <div class="mt-2">
+                             <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">PS5</span>
+                             <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Xbox Series X</span>
+                             <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">PC</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary w-full sm:w-auto">Comprar en Steam</a>
+                </div>
+                <!-- Game 3 -->
+                 <div class="bg-dark-2 p-4 rounded-xl flex flex-col sm:flex-row items-center gap-6 card-hover-effect">
+                    <img src="https://placehold.co/150x200/4a4a4a/ffffff?text=Starfield" alt="Portada de Starfield" class="w-24 sm:w-28 h-auto rounded-lg">
+                    <div class="flex-1 text-center sm:text-left">
+                        <h3 class="text-xl font-bold text-white">Starfield</h3>
+                        <p class="text-gray-400 text-sm">Bethesda Game Studios</p>
+                        <div class="mt-2">
+                             <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Xbox Series X</span>
+                             <span class="inline-block bg-dark-3 text-gray-300 text-xs font-semibold px-2.5 py-0.5 rounded-full">PC</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary w-full sm:w-auto">Comprar en Xbox Store</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark-2 border-t border-dark-3">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                     <a href="index.html" class="text-xl font-bold text-white">
+                        Gesta Gamer
+                    </a>
+                    <p class="text-gray-400 mt-2">Tu fuente diaria para todo sobre videojuegos.</p>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-dark-4 pt-4 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 Gesta Gamer. Todos los derechos reservados.</p>
+                <p class="mt-1">Se pueden utilizar enlaces de afiliados y podemos ganar una comisión por las compras.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- News Modal -->
+    <div id="newsModal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4 modal">
+        <div class="bg-dark-2 rounded-xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6 sm:p-8 modal-content scale-95">
+            <div class="flex justify-between items-center mb-4">
+                <h2 id="modalTitle" class="text-2xl sm:text-3xl font-bold text-white"></h2>
+                <button id="closeModal" class="text-gray-400 hover:text-white">&times;</button>
+            </div>
+            <img id="modalImage" src="" alt="Imagen de la noticia" class="w-full h-auto max-h-80 object-cover rounded-lg mb-6">
+            <div id="modalText" class="text-gray-300 leading-relaxed space-y-4"></div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica del Modal
+            const modal = document.getElementById('newsModal');
+            const closeModalBtn = document.getElementById('closeModal');
+    
+            const closeModal = () => {
+                modal.classList.add('opacity-0', 'pointer-events-none');
+                modal.firstElementChild.classList.add('scale-95');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('opacity-0', 'pointer-events-none', 'flex');
+                    modal.firstElementChild.classList.remove('scale-95');
+                    document.body.style.overflow = 'auto';
+                }, 300);
+            };
+    
+            const openModal = (e) => {
+                e.preventDefault();
+                const trigger = e.currentTarget;
+                document.getElementById('modalTitle').textContent = trigger.dataset.title;
+                const modalImage = document.getElementById('modalImage');
+                modalImage.src = trigger.dataset.image;
+                modalImage.onerror = () => {
+                    modalImage.src = 'https://placehold.co/800x450/181818/ffffff?text=Imagen+no+disponible';
+                };
+                document.getElementById('modalText').innerHTML = trigger.dataset.content.replace(/\n/g, '<br>');
+    
+                modal.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.classList.add('flex');
+                    modal.classList.remove('opacity-0', 'pointer-events-none');
+                    modal.firstElementChild.classList.remove('scale-95');
+                }, 10);
+                document.body.style.overflow = 'hidden';
+            };
+    
+            const initializeModal = () => {
+                const openModalTriggers = document.querySelectorAll('.open-modal-trigger');
+                openModalTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', openModal);
+                });
+            };
+    
+            closeModalBtn.addEventListener('click', closeModal);
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+            
+            // Inicializar los triggers del modal para el contenido estático
+            initializeModal();
+        });
+    </script>
+
+</body>
+</html>
