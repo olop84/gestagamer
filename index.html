@@ -157,14 +157,20 @@
                         <label class="text-sm font-semibold text-zinc-400">Nombre del Streamer</label>
                         <input type="text" name="streamer_name" required placeholder="Ej. Kai Cenat" class="w-full p-3 rounded-xl">
                     </div>
-                    <div class="space-y-2">
+                    <div class="space-y-2 relative">
                         <label class="text-sm font-semibold text-zinc-400">Plataforma Principal</label>
-                        <select name="platform" class="w-full p-3 rounded-xl">
-                            <option>Twitch</option>
-                            <option>YouTube</option>
-                            <option>Kick</option>
-                            <option>Facebook Gaming</option>
-                        </select>
+                        <div class="relative">
+                            <select name="platform" class="w-full p-3 rounded-xl pr-10 cursor-pointer">
+                                <option value="Twitch">Twitch</option>
+                                <option value="YouTube">YouTube</option>
+                                <option value="Kick">Kick</option>
+                                <option value="Facebook Gaming">Facebook Gaming</option>
+                                <option value="Otro">Otro / Variado</option>
+                            </select>
+                            <div class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400">
+                                <i data-lucide="chevron-down" class="w-5 h-5"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="space-y-2">
@@ -372,6 +378,7 @@
     </script>
 </body>
 </html>
+
 
 
 
