@@ -262,7 +262,8 @@
                 twitch: "https://twitch.tv/kaicenat",    // CAMBIA AQUÍ
                 discord: "https://discord.gg/kaicenat", // CAMBIA AQUÍ
                 instagram: "#",                         // CAMBIA AQUÍ
-                facebook: "#"                           // CAMBIA AQUÍ
+                facebook: "#",
+                linkEntrevista: "#"// CAMBIA AQUÍ
             },
             { 
                 nombre: "Ibai Llanos", 
@@ -270,7 +271,8 @@
                 twitch: "https://twitch.tv/ibai",
                 discord: "#",
                 instagram: "https://instagram.com/ibaillanos",
-                facebook: "#"
+                facebook: "#",
+                linkEntrevista: "#"
             },
             { 
                 nombre: "xQc", 
@@ -278,7 +280,8 @@
                 twitch: "https://twitch.tv/xqc",
                 discord: "#",
                 instagram: "#",
-                facebook: "#"
+                facebook: "#",
+                linkEntrevista: "#"
             }
             // Puedes añadir más streamers copiando un bloque entero arriba.
         ];
@@ -342,6 +345,11 @@
                                     <i data-lucide="facebook" class="w-5 h-5 text-white"></i>
                                 </a>
                             </div>
+                            <!-- Botón de Entrevista Añadido -->
+                            <a href="${s.linkEntrevista}" class="block w-full py-3 bg-indigo-600/20 hover:bg-indigo-600 text-indigo-400 hover:text-white rounded-xl text-sm font-bold transition-all flex items-center justify-center space-x-2">
+                                <i data-lucide="video" class="w-4 h-4"></i>
+                                <span>Ver Entrevista</span>
+                            </a>
                         </div>
                     </div>
                 `;
@@ -364,6 +372,7 @@
     </script>
 </body>
 </html>
+
 
 
 
